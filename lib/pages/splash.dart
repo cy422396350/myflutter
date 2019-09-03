@@ -10,14 +10,14 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   Timer _timer;
-  int count = 3;
+  int count = 1;
 
   startTime() async {
     //设置启动图生效时间
-    var _duration = new Duration(seconds: 1);
+    var _duration = new Duration(milliseconds: 500);
     new Timer(_duration, () {
-      // 空等1秒之后再计时
-      _timer = new Timer.periodic(const Duration(milliseconds: 1000), (v) {
+      // 空等.5秒之后再计时
+      _timer = new Timer.periodic(const Duration(milliseconds: 500), (v) {
         count--;
         if (count == 0) {
           navigationPage();
@@ -48,25 +48,11 @@ class _SplashState extends State<Splash> {
       children: [
         new ConstrainedBox(
           constraints: BoxConstraints.expand(),
-          child: new Image.network(
-            "https://pic1.zhimg.com/80/v2-940e20cee94eba65c659015a6c858642_hd.jpg",//广告图
+          child: new Image.asset(
+            "images/splash.jpg",
             fit: BoxFit.fill,
           ),
         ),
-        new Padding(
-          padding: new EdgeInsets.fromLTRB(0.0, 30.0, 10.0, 0.0),
-          child: new FlatButton(
-            onPressed: () {
-              navigationPage();
-            },
-//            padding: EdgeInsets.all(0.0),
-            color: Colors.grey,
-            child: new Text(
-              "$count 跳过广告",
-              style: new TextStyle(color: Colors.white, fontSize: 12.0),
-            ),
-          ),
-        )
       ],
     );
   }

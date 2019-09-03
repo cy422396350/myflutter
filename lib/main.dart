@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myflutter/pages/home.dart';
 import './pages/splash.dart';
 //引入路由跳转包fluro
 import 'package:fluro/fluro.dart';
@@ -10,7 +9,7 @@ import 'routers/handler.dart';
 Router router = new Router();
 void main() {
   void defineRoutes(Router router) {
-    router.define("/home/:title/:pass", handler: homeHandler);
+    router.define("/home", handler: homeHandler);
     router.define("/me/:data", handler: meHandler);
   }
   defineRoutes(router);

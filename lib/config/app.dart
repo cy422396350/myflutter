@@ -1,0 +1,1 @@
+const appTitle = "常中蝎's Blog";
