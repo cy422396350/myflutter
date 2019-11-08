@@ -1,0 +1,37 @@
+<?php
+
+
+class student
+{
+    protected $num = 10;
+    public  $name;
+    const sex = "男";
+    private $arr = [];
+    public function __construct()
+    {
+        $this->arr = [1,23,3,4,5];
+    }
+    public function study(){
+        echo 'study';
+    }
+    private function __foo(){
+        echo "foo";
+    }
+    public function __get($name)
+    {
+        // TODO: Implement __get() method.
+        echo "get $name";
+    }
+    protected function protectedf(){
+        echo "get protectedf";
+    }
+    public function ppp($a,$b,$c,...$arrp)
+    {
+        // TODO: Implement __get() method.
+        echo "get ppp";
+    }
+}
+
+$class = new \ReflectionClass("student");
+var_dump($class->isInstantiable()); //是否可实例化
+var_dump($class->getConstructor()); //返回的是一个构造函数的对象
